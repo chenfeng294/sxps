@@ -1,0 +1,30 @@
+{
+  "name": "fresh-delivery-system",
+  "version": "1.0.0",
+  "description": "生鲜配送SaaS数字化管理平台",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend/admin",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:admin\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:admin": "cd frontend/admin && npm run dev",
+    "build": "npm run build:backend && npm run build:admin",
+    "vercel-build": "npm run build",
+    "build:backend": "cd backend && npm run build",
+    "build:admin": "cd frontend/admin && npm run build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "db:migrate": "cd backend && npm run db:migrate",
+    "db:seed": "cd backend && npm run db:seed"
+  },
+  "keywords": ["fresh", "delivery", "saas", "logistics"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
